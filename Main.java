@@ -37,12 +37,29 @@ public class Main {
 
       System.out.println();
 
-      car1.setBrand("Ferrari");
-      car1.setModel("F8");
-      car1.setYear(2020);
+      System.out.println("Testing setYear:");
 
-      System.out.println("After updating Vehicle 1:");
-      car1.displayInfo();
+      System.out.println("setYear(2000): " + car1.setYear(2000));
+      System.out.println("Stored year: " + car1.getYear());
+      System.out.println("Age: " + car1.calculateAge());
+      System.out.println("Vintage: " + car1.isVintage());
 
+      System.out.println();
+
+      System.out.println("setYear(1885): " + car1.setYear(1885));
+      System.out.println("Stored year: " + car1.getYear());
+
+      System.out.println();
+
+      System.out.println("setYear(2027): " + car1.setYear(2027));
+      System.out.println("Stored year: " + car1.getYear());
+
+      System.out.println();
+
+      Vehicle invalidLow = new Vehicle("Test", "LowYear", 1885);
+      System.out.println("New vehicle with year 1885: " + invalidLow.getYear());
+
+      Vehicle invalidHigh = new Vehicle("Test", "HighYear", 2027);
+      System.out.println("New vehicle with year 2027: " + invalidHigh.getYear());
    }
 }
