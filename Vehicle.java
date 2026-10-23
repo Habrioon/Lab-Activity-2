@@ -1,50 +1,64 @@
+
 public class Vehicle {
+    private String brand;
+    private String model;
+    private int year;
 
-   private String brand;
-   private String model;
-   private int year;
+    public Vehicle(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
 
-   public Vehicle(String brand, String model, int year) {
-      this.brand = brand;
-      this.model = model;
+        if (year >= 1886 && year <= 2026) {
+            this.year = year;
+        } else {
+            this.year = 2026;
+        }
+    }
 
-      if (year >= 1886 && year <= 2026) {
-         this.year = year;
-      } else {
-         this.year = 2026;
-      }
-   }
+    public String getBrand() {
+        return brand;
+    }
 
-   public String getBrand() {
-      return brand;
-   }
+    public String getModel() {
+        return model;
+    }
 
-   public String getModel() {
-      return model;
-   }
+    public int getYear() {
+        return year;
+    }
 
-   public int getYear() {
-      return year;
-   }
+    public boolean setYear(int year) {
+        if (year >= 1886 && year <= 2026) {
+            this.year = year;
+            return true;
+        }
 
-   public boolean setYear(int year) {
-      if (year >= 1886 && year <= 2026) {
-         this.year = year;
-         return true;
-      }
+        return false;
+    }
 
-      return false;
-   }
+    public void displayInfo() {
+        System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
+    }
 
-   public void displayInfo() {
-      System.out.println(brand + " " + model + "(" + year + ")");
-   }
+    public int calculateAge() {
+        return 2026 - year;
+    }
 
-   public int calculateAge() {
-      return 2026 - year;
-   }
+    public boolean isVintage() {
+        return calculateAge() > 25;
+    }
 
-   public boolean isVintage() {
-      return calculateAge() > 25;
-   }
+    // Runtime polymorphism: method overriding
+    public void startEngine() {
+        System.out.println(brand + " " + model + ": engine starts.");
+    }
+
+    // Compile-time polymorphism: method overloading
+    public void drive(int km) {
+        System.out.println(brand + " " + model + " drove " + km + " km.");
+    }
+
+    public void drive(int km, String destination) {
+        System.out.println(brand + " " + model + " drove " + km + " km to " + destination + ".");
+    }
 }
