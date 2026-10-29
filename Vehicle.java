@@ -1,64 +1,11 @@
 
-public class Vehicle {
-    private String brand;
-    private String model;
-    private int year;
+public abstract class Vehicle {
 
-    public Vehicle(String brand, String model, int year) {
-        this.brand = brand;
-        this.model = model;
+    public abstract void moveForward();
 
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-        } else {
-            this.year = 2026;
-        }
-    }
+    public abstract void moveBackwards();
 
-    public String getBrand() {
-        return brand;
-    }
+    public abstract void moveLeft();
 
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public boolean setYear(int year) {
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-            return true;
-        }
-
-        return false;
-    }
-
-    public void displayInfo() {
-        System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
-    }
-
-    public int calculateAge() {
-        return 2026 - year;
-    }
-
-    public boolean isVintage() {
-        return calculateAge() > 25;
-    }
-
-    // Runtime polymorphism: method overriding
-    public void startEngine() {
-        System.out.println(brand + " " + model + ": engine starts.");
-    }
-
-    // Compile-time polymorphism: method overloading
-    public void drive(int km) {
-        System.out.println(brand + " " + model + " drove " + km + " km.");
-    }
-
-    public void drive(int km, String destination) {
-        System.out.println(brand + " " + model + " drove " + km + " km to " + destination + ".");
-    }
+    public abstract void moveRight();
 }

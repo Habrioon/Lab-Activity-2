@@ -1,25 +1,23 @@
 
 public class Truck extends Vehicle {
-    private double cargoCapacityTons;
-    private int wheels = 6;
 
-    public Truck(String brand, String model, int year, double cargoCapacityTons) {
-        super(brand, model, year);
-        this.cargoCapacityTons = cargoCapacityTons;
-    }
-
-    public int getWheels() {
-        return wheels;
+    @Override
+    public void moveForward() {
+        System.out.println("A truck moves forward");
     }
 
     @Override
-    public void startEngine() {
-        System.out.println(getBrand() + " " + getModel() + " (Truck): diesel engine starts with a deep rumble.");
+    public void moveBackwards() {
+        System.out.println("A truck moves backwards");
     }
 
     @Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Type: Truck, Wheels: " + wheels + ", Cargo Capacity: " + cargoCapacityTons + " tons");
+    public void moveLeft() {
+        System.out.println("A truck moves left");
+    }
+
+    @Override
+    public void moveRight() {
+        System.out.println("A truck moves right");
     }
 }
